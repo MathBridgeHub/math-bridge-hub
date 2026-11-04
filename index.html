@@ -223,6 +223,113 @@ nav a:hover{
     margin-bottom:12px;
 }
 
+/* MBH identity cards */
+.mbh-identity{
+    position:relative;
+    overflow:hidden;
+    border:1px solid #e2eaf8;
+    border-top:5px solid #0b63ce;
+    padding:clamp(24px, 3vw, 38px);
+    text-align:left;
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+.mbh-identity:hover{
+    transform:translateY(-5px);
+    box-shadow:0 14px 30px rgba(6,69,173,.14);
+}
+.mbh-identity h3{
+    font-size:clamp(22px, 2vw, 28px);
+    margin-bottom:14px;
+}
+.mbh-identity p{
+    font-size:17px;
+    line-height:1.8;
+}
+.mbh-identity .identity-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:48px;
+    height:48px;
+    margin-bottom:16px;
+    border-radius:14px;
+    background:#eaf2ff;
+    color:#0645ad;
+    font-size:25px;
+}
+.mbh-slogan{
+    grid-column:1 / -1;
+    text-align:center;
+    background:linear-gradient(135deg,#0645ad,#0b63ce 60%,#1686d9);
+    color:white;
+    border:0;
+}
+.mbh-slogan h3,
+.mbh-slogan p{
+    color:white;
+}
+.mbh-slogan .slogan-marquee{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    min-height:clamp(42px, 5vw, 60px);
+}
+.mbh-slogan .slogan-text{
+    display:block;
+    width:100%;
+    white-space:nowrap;
+    font-size:clamp(30px, 4vw, 48px);
+    font-weight:900;
+    letter-spacing:.04em;
+    line-height:1.2;
+    animation:mbhSloganMove 8s linear infinite;
+}
+@keyframes mbhSloganMove{
+    from{transform:translateX(-100%)}
+    to{transform:translateX(100%)}
+}
+@media (prefers-reduced-motion:reduce){
+    .mbh-slogan .slogan-text{animation:none;}
+}
+.objectives-panel{
+    max-width:none;
+    margin:32px auto 0;
+    padding:clamp(26px, 4vw, 44px);
+    background:#fff;
+    border-radius:18px;
+    border:1px solid #e2eaf8;
+    box-shadow:0 8px 24px rgba(6,69,173,.08);
+}
+.objectives-panel h3{
+    color:#0645ad;
+    text-align:center;
+    font-size:clamp(25px, 2.5vw, 34px);
+    margin-bottom:24px;
+}
+.objectives-list{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:16px 28px;
+    list-style:none;
+}
+.objectives-list li{
+    position:relative;
+    padding:15px 18px 15px 48px;
+    background:#f5f8ff;
+    border-radius:12px;
+    line-height:1.65;
+    font-size:16px;
+}
+.objectives-list li::before{
+    content:"✓";
+    position:absolute;
+    left:16px;
+    top:14px;
+    color:#0b63ce;
+    font-weight:900;
+    font-size:19px;
+}
+
 .ambition-box{
     max-width:none;
     margin:40px auto;
@@ -1150,6 +1257,12 @@ footer{
 
 }
 
+
+@media(max-width:800px){
+    .objectives-list{grid-template-columns:1fr;}
+    .mbh-identity{ text-align:center; }
+}
+
 </style>
 </head>
 
@@ -1265,41 +1378,38 @@ to real opportunities and real-world solutions.
 
 <div class="about-grid">
 
-<div class="info-card">
+<div class="info-card mbh-identity">
+<div class="identity-icon" aria-hidden="true">◎</div>
 <h3>Our Vision</h3>
-
-<p>
-To build a strong and connected mathematical community
-where scholars, educators, researchers and professionals
-use mathematics to create knowledge, opportunities and
-solutions for the real world.
-</p>
-
+<p>To build a connected mathematical community where people use mathematics to create knowledge, opportunity, innovation and solutions for the real world.</p>
 </div>
 
-<div class="info-card">
+<div class="info-card mbh-identity">
+<div class="identity-icon" aria-hidden="true">✦</div>
 <h3>Our Mission</h3>
+<p>To make mathematics accessible and meaningful through learning, mentorship, research, collaboration and practical experiences that empower people to apply mathematics in everyday life and across professions.</p>
+</div>
 
-<p>
-To provide accessible mathematics learning, workshops,
-mentorship, networking, research exposure and practical
-experiences that help people develop mathematical
-knowledge and apply it meaningfully.
-</p>
+<div class="info-card mbh-identity mbh-slogan">
+<div class="identity-icon" aria-hidden="true">⌁</div>
+<h3>Our Slogan</h3>
+<div class="slogan-marquee"><p class="slogan-text">Real Math, Real Life</p></div>
+</div>
 
 </div>
 
-<div class="info-card">
-<h3>Our Ambition</h3>
-
-<p>
-We aim to develop Math Bridge Hub into a growing mathematics
-network that connects education, research, careers,
-technology, innovation and society through mathematics.
-</p>
-
-</div>
-
+<div class="objectives-panel">
+<h3>Our Objectives</h3>
+<ul class="objectives-list">
+<li>Promote mathematical understanding, confidence and appreciation.</li>
+<li>Connect mathematical concepts with practical, real-world applications.</li>
+<li>Support learning, academic growth and professional development.</li>
+<li>Encourage research, innovation, critical thinking and problem-solving.</li>
+<li>Provide mentorship, networking and opportunities for collaboration.</li>
+<li>Showcase mathematics-related careers and pathways.</li>
+<li>Build partnerships with educational institutions and organisations.</li>
+<li>Use mathematics to contribute to positive and sustainable community impact.</li>
+</ul>
 </div>
 
 <div class="ambition-box">
@@ -4161,8 +4271,8 @@ into lasting opportunities for our mathematics community.”
 </div>
 
 <div class="team-card">
-<img src="edu.jpeg" alt="Edwin Mukhevi">
-<h3>Edwin Mukhevi</h3>
+<img src="edu.jpeg" alt="Edwin Mukhebi">
+<h3>Edwin Mukhebi</h3>
 <p class="team-role">Organizing Secretary</p>
 <div class="team-quote">
 “Effective organization brings people and ideas together, creating
